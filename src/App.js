@@ -1,9 +1,10 @@
-import React from "react";
+import {React} from 'react';
 import './App.css';
-import Title from "./components/functional/Title";
-import Menu from "./components/functional/Menu";
+import Header from "./components/functional/Header";
+import Navbar from "./components/functional/Navbar";
+import About from './components/functional/About' ;
 import { QueryClientProvider, QueryClient } from "react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter , Route , Switch} from  'react-router-dom';
 
 function App() {
   var client = new QueryClient();
@@ -12,20 +13,30 @@ function App() {
       <QueryClientProvider client={client}>
 
       <BrowserRouter >
-      <Title/>
-      <Menu/>
+      
+      <Header title="FUND RAISING" />
 
-        <Routes>
+      <Switch>
+  
+      <Route exact path = "/" >
+      <Navbar/>
+      </Route>   
+    
+      <Route exact path = "/About" >
+      <Navbar/>
+      <About/>
+      </Route>   
 
-          <Route>
+      <Route path="/Login">
+      </Route> 
 
-          </Route>
+      <Route path="/Register">
+      </Route> 
+         
 
-
-        </Routes> 
-        
-        </BrowserRouter>
-        </QueryClientProvider>
+      </Switch>
+       </BrowserRouter>
+       </QueryClientProvider>
     );
 }
 
