@@ -3,6 +3,11 @@ import './App.css';
 import Header from "./components/functional/Header";
 import Navbar from "./components/functional/Navbar";
 import About from './components/functional/About' ;
+import HomeStepper2 from './components/functional/HomeStepper2'
+import HomeStepper from './components/functional/HomeStepper'
+import Home3 from './components/functional/Home3'
+import Register from './components/functional/Register'
+import Login from './components/functional/Login'
 import { QueryClientProvider, QueryClient } from "react-query";
 import {BrowserRouter , Route , Switch} from  'react-router-dom';
 
@@ -20,6 +25,9 @@ function App() {
   
       <Route exact path = "/" >
       <Navbar/>
+      <HomeStepper/>
+      <Home3/>
+      <HomeStepper2/>
       </Route>   
     
       <Route exact path = "/About" >
@@ -28,11 +36,16 @@ function App() {
       </Route>   
 
       <Route path="/Login">
+        <Login/>
       </Route> 
 
       <Route path="/Register">
+        <Register/>
       </Route> 
-         
+
+       <Route path="/Profile">
+       <Navbar/>
+      </Route>    
 
       </Switch>
        </BrowserRouter>

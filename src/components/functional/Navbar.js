@@ -8,7 +8,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import {mainListItems,secondaryListItems } from './Navlist';
-import { makeStyles } from '@mui/styles';
+//import { makeStyles } from '@mui/styles';
 
 
 const drawerWidth = 240;
@@ -47,14 +47,14 @@ function Navbar() {
     setOpen(!open);
   };
 
-  const useStyles = makeStyles({
-    root : {
-      display:'block',
-      fontFamily :'revert',
-    }
-  })
+  // const useStyles = makeStyles({
+  //   root : {
+  //     display:'block',
+  //     fontFamily :'revert',
+  //   }
+  // })
 
- const classes = useStyles();
+ //const classes = useStyles();
   return (
    
         <Drawer variant="permanent" open={open}>
@@ -76,11 +76,11 @@ function Navbar() {
             <Divider sx={{ my: 1 }} />
             {secondaryListItems}
             <Divider sx={{ my: 1 }} />
-            <br></br>
+            {/* <br></br>
             <div className={classes.root}>
             &nbsp; “Alone we can do so little;<br></br>&nbsp;together we can do so much”<br></br><br></br> 
             &nbsp;-Helen Keller
-            </div>
+            </div> */}
           
           </List>
         </Drawer>

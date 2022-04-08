@@ -8,7 +8,7 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
 import LinkIcon from '@mui/icons-material/Link';
-//import { Link } from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
 import Link from '@mui/material/Link';
 
  
@@ -26,7 +26,7 @@ export const mainListItems = (
     <Link href = "/About" underline = "none" color = "#424242">
     <ListItemButton>
       <ListItemIcon>
-        <PersonIcon />
+        <InfoIcon />
       </ListItemIcon>
       <ListItemText primary="About" />
     </ListItemButton>
@@ -50,12 +50,14 @@ export const mainListItems = (
     </ListItemButton>
     </Link>
 
+    <Link href = "/Profile" underline = "none" color = "#424242">
     <ListItemButton>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
+    </Link>
     
   </React.Fragment>
 );

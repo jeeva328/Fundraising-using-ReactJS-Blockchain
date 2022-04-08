@@ -20,7 +20,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={require('../images/vision.jpg')} 
           alt="green iguana"
         />
         <CardContent>
@@ -47,7 +47,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={require('../images/mission.jpg')} 
           alt="green iguana"
         />
         <CardContent>
@@ -74,7 +74,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={require('../images/fund.jpg')} 
           alt="green iguana"
         />
         <CardContent>
