@@ -8,6 +8,9 @@ import HomeStepper from './components/functional/HomeStepper'
 import Home3 from './components/functional/Home3'
 import Register from './components/functional/Register'
 import Login from './components/functional/Login'
+import Profile from './components/functional/Profile';
+import ProfileStepper from './components/functional/ProfileStepper'
+import Donate from './components/functional/Donate'
 import { QueryClientProvider, QueryClient } from "react-query";
 import {BrowserRouter , Route , Switch} from  'react-router-dom';
 
@@ -44,8 +47,17 @@ function App() {
       </Route> 
 
        <Route path="/Profile">
-       <Navbar/>
-      </Route>    
+      <Navbar/>
+      <Profile/>
+      </Route>  
+
+      <Route path="/RaiseFund">
+      <ProfileStepper/>
+      </Route>   
+
+      <Route path = "/Donate">
+        <Donate/>
+        </Route> 
 
       </Switch>
        </BrowserRouter>
