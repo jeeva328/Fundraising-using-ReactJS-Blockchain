@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { useForm } from "react-hook-form";
 import Button from '@mui/material/Button'
+
 export default function RaiseFund3({changedata,hand,activeStep,steps}) {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) =>{
@@ -45,11 +46,12 @@ export default function RaiseFund3({changedata,hand,activeStep,steps}) {
            {...register("amount", { required: true })}
             required
             id="amount"
-            label="Amount (in ETH)"
+            label="Amount (in Wei)"
             helperText=""
             fullWidth
             autoComplete="Amount"
             variant="standard"
+            type = "number"
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -61,6 +63,7 @@ export default function RaiseFund3({changedata,hand,activeStep,steps}) {
             fullWidth
             autoComplete="cc-exp"
             variant="standard"
+            type="date"
           />
         </Grid>
         

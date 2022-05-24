@@ -1,4 +1,4 @@
-  import  React, { useState } from 'react';
+  import  React, { useState,useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -22,25 +22,23 @@ const theme = createTheme();
 
 export default function ProfileStepper() {
    
-const [data1, setdata1] = useState([]);
-const [data2, setdata2] = useState([]);
-const [data3, setdata3] = useState([]);
-  const [activeStep, setActiveStep] = React.useState(0);
+const [data1, setdata1] = useState(null);
+const [data2, setdata2] = useState(null);
+const [data3, setdata3] = useState(null);
 
-  // const handleNext = (event) => {
-  //   setActiveStep(activeStep + 1);
-  // };
+  const [activeStep, setActiveStep] = React.useState(0);
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
-
   function getStepContent(step) {
+
     switch (step) {
       case 0:
-        return <RaiseFund1 changedata={(val)=>setdata1({...data1,val})} hand={() => {
-          setActiveStep(activeStep + 1)}} activeStep={activeStep} steps={steps} />;
+        return <RaiseFund1 changedata={(val)=>setdata1({...data1,val})}  hand={() => {
+          setActiveStep(activeStep + 1)}} activeStep={activeStep} steps={steps} 
+          />;
       case 1:
         return <RaiseFund2 changedata={(val)=>setdata2({...data2,val})}  hand={() => {
           setActiveStep(activeStep + 1)}} activeStep={activeStep} steps={steps}/>;
@@ -49,20 +47,18 @@ const [data3, setdata3] = useState([]);
             setActiveStep(activeStep + 1)}} activeStep={activeStep} steps={steps} />
       default:
         throw new Error('Unknown step');
-    }
+    } 
   }
 
-  if(data1 !== 0)
-  {
-axios.post("http://localhost:2000/Raiserdet",data1)
-  }
-  // console.log('====================================');
-  // console.log(data1);
-  // console.log('====================================');
-  // console.log(data2);
-  // console.log('====================================');
-  // console.log(data3);
-  // console.log('-------------------------------------');
+  useEffect(() => {
+    if((data1 !== null) && (data2 !== null) && (data3 !== null))
+    {
+    const data = {data1,data2,data3}
+    //console.log("main data",data)
+    axios.post("http://localhost:2000/Raiserdet",data)
+    }
+  },[data1,data2,data3])
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

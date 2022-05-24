@@ -57,7 +57,7 @@ function App() {
 
       <Route path = "/Donate">
         <Donate/>
-        </Route> 
+        </Route>  
 
       </Switch>
        </BrowserRouter>

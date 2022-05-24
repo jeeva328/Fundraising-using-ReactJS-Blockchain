@@ -20,10 +20,10 @@ export default function RaiseFund1({changedata,hand,activeStep,steps}) {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
-           {...register("firstName", { required: true })}
+           {...register("Needfirstname", { required: true })}
             required
             id="firstName"
-            name="firstName"
+            name="Needfirstname"
             label="Needer's first name"
             fullWidth
             autoComplete="given-name"
@@ -32,10 +32,10 @@ export default function RaiseFund1({changedata,hand,activeStep,steps}) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-           {...register("lastName", { required: true })}
+           {...register("Needlastname", { required: true })}
             required
             id="lastName"
-            name="lastName"
+            name="Needlastname"
             label="Needer's last name"
             fullWidth
             autoComplete="family-name"
@@ -46,7 +46,8 @@ export default function RaiseFund1({changedata,hand,activeStep,steps}) {
         <Grid item xs={12}>
           <TextField
            {...register("description", { required: true })}
-            id="description"
+           required 
+           id="description"
             name="description"
             label="Short description"
             fullWidth

@@ -4,15 +4,23 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { useForm } from "react-hook-form";
 import Button from '@mui/material/Button'
-//import axios from "axios"
+import axios from "axios"
 
 export default function RaiseFund1({changedata,hand,activeStep,steps}) {
   const { register, handleSubmit } = useForm();
+  
+  //const [value, setvalue] = useState([]);
+  
+  // const assign = (data) => 
+  // {
+  //   setvalue({...value,data})
+  //   console.log(value)
+  // }
 
-  const onSubmit = (data) =>{
-    changedata(data)
-    hand()
-   console.log(data)
+
+  const onSubmit = async (data) =>{
+    await changedata(data)
+    await hand()
   };
 
   return (
@@ -32,6 +40,7 @@ export default function RaiseFund1({changedata,hand,activeStep,steps}) {
             fullWidth
             autoComplete="given-name"
             variant="standard"
+            
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -60,10 +69,10 @@ export default function RaiseFund1({changedata,hand,activeStep,steps}) {
         </Grid>
         <Grid item xs={12}>
           <TextField
-           {...register("Mobile", { required: true })}
+           {...register("mobile", { required: true })}
           required
         id="Mobile"
-            name="Mobile"
+            name="mobile"
             label="Contact Number"
             fullWidth
             autoComplete="Contact info"
