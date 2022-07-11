@@ -13,7 +13,7 @@ export default function BoxSx() {
         boxShadow:2,
         backgroundColor: '#fafafa',
         position :'absolute',
-        bottom:15,
+        bottom:13 ,
         left :245,
       }}>
 

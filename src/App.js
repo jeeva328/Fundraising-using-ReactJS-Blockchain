@@ -2,7 +2,7 @@ import {React} from 'react';
 import './App.css';
 import Header from "./components/functional/Header";
 import Navbar from "./components/functional/Navbar";
-import About from './components/functional/About' ;
+//import About from './components/functional/About' ;
 import HomeStepper2 from './components/functional/HomeStepper2'
 import HomeStepper from './components/functional/HomeStepper'
 import Home3 from './components/functional/Home3'
@@ -28,15 +28,15 @@ function App() {
   
       <Route exact path = "/" >
       <Navbar/>
-      <HomeStepper/>
       <Home3/>
+      <HomeStepper/>
       <HomeStepper2/>
       </Route>   
     
-      <Route exact path = "/About" >
+      {/* <Route exact path = "/About" >
       <Navbar/>
       <About/>
-      </Route>   
+      </Route>    */}
 
       <Route path="/Login">
         <Login/>

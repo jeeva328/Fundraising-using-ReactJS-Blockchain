@@ -11,94 +11,115 @@ import LinkIcon from '@mui/icons-material/Link';
 import InfoIcon from '@mui/icons-material/Info';
 import Link from '@mui/material/Link';
 
- 
-export const mainListItems = (
-  <React.Fragment>
-    <Link href = "/" underline='none' color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <HomeIcon />
-      </ListItemIcon>
-      <ListItemText primary="Home"/>
-    </ListItemButton>
+
+export const mainListItems = ( 
+    <React.Fragment >
+    <Link href = "/"
+    underline = 'none'
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <HomeIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "Home" />
+    </ListItemButton> 
     </Link>
 
-    <Link href = "/About" underline = "none" color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <InfoIcon />
-      </ListItemIcon>
-      <ListItemText primary="About" />
-    </ListItemButton>
+    <Link href = "/Register"
+    underline = "none"
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <AppRegistrationIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "Register" />
+    </ListItemButton> 
     </Link>
 
-<Link href = "/Login" underline = "none" color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <LoginIcon />
-      </ListItemIcon>
-      <ListItemText primary="Login" />
-    </ListItemButton>
-    </Link>
- 
-    <Link href = "/Register" underline = "none" color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <AppRegistrationIcon />
-      </ListItemIcon>
-      <ListItemText primary="Register" />
-    </ListItemButton>
+    <Link href = "/Login"
+    underline = "none"
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <LoginIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "Login" />
+    </ListItemButton> 
     </Link>
 
-    <Link href = "/Profile" underline = "none" color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <PersonIcon />
-      </ListItemIcon>
-      <ListItemText primary="Profile" />
-    </ListItemButton>
+    {/* <
+    Link href = "/Login"
+    underline = "none"
+    color = "#424242" >
+    <
+    ListItemButton >
+    <
+    ListItemIcon >
+    <
+    LoginIcon / >
+    <
+    /ListItemIcon> <
+    ListItemText primary = "Login" / >
+    <
+    /ListItemButton> <
+    /Link> */}
+
+
+    <Link href = "/Profile"
+    underline = "none"
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <PersonIcon />
+    </ListItemIcon>
+     <ListItemText primary = "Profile" />
+    </ListItemButton> 
     </Link>
-    
-  </React.Fragment>
+
+    </React.Fragment>
 );
 
 
- export const secondaryListItems = (
-  <React.Fragment>
-    <ListSubheader component="div" inset>
-      Some Useful Links
+export const secondaryListItems = ( 
+    <React.Fragment >
+    
+    <ListSubheader component = "div"inset >
+    Some Useful Links 
     </ListSubheader>
+
+    <Link href = 'https://rinkeby.etherscan.io/'
+    underline = 'none'
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <LinkIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "Etherscan" />
+    </ListItemButton> 
+    </Link>
+
+    <Link href = 'https://www.blockchain.com/'
+    underline = 'none'
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <LinkIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "BlockChain" />
+    </ListItemButton> 
+    </Link>
+
+    <Link href = 'https://ethereum.org/en/'
+    underline = 'none'
+    color = "#424242" >
+    <ListItemButton >
+    <ListItemIcon >
+    <LinkIcon />
+    </ListItemIcon> 
+    <ListItemText primary = "Ethereum" />
+    </ListItemButton>   
+    </Link>
+
     
-    <Link href = 'https://google.com' underline='none' color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <LinkIcon />
-      </ListItemIcon>
-      <ListItemText primary="link1" />
-    </ListItemButton>
-    </Link>
-
-    <Link href = 'https://google.com' underline='none' color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <LinkIcon />
-      </ListItemIcon>
-      <ListItemText  primary = "link2" />
-    </ListItemButton>
-    </Link>
-
-    <Link href = 'https://google.com' underline='none' color = "#424242">
-    <ListItemButton>
-      <ListItemIcon>
-        <LinkIcon />
-      </ListItemIcon>
-      <ListItemText  primary = "link3" />
-    </ListItemButton>
-    </Link>
-
-  </React.Fragment>
+    </React.Fragment>
 );
-
-
-
-

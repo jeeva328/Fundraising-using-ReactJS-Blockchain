@@ -42,7 +42,7 @@ export default function TextMobileStepper() {
   return (
     <Box sx={{ maxWidth: 415, flexGrow: 1 ,
     position:'absolute',
-    bottom: 17,
+    bottom: 13,
     left : 1100,
     boxShadow:4,
     }}>

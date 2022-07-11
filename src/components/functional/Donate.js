@@ -28,8 +28,9 @@ import web3 from "./web3";
 import fund from "./fundraise";
 
 
-function createData(nameN, purpose , amt ,raisedby , des , walladd , mob , zip) {
+function createData(id,nameN, purpose , amt ,raisedby , des , walladd , mob , zip,raised) {
   return {
+    id,
     nameN,
     purpose,
     amt,
@@ -37,7 +38,8 @@ function createData(nameN, purpose , amt ,raisedby , des , walladd , mob , zip) 
     des,
     walladd,
     mob,
-    zip
+    zip,
+    raised
   };
 }
 
@@ -60,18 +62,16 @@ function Row(props) {
   const Donatepage = (props) => {
 
     console.log("Get details",props)
-  
+    
     const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-
   const close = () =>{
     setOpen(false)
   }
-
   const onSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -90,14 +90,33 @@ function Row(props) {
         from: accounts[0],
         value: init.d_amt,
       });
-    await alert("Transaction successful")
-    await setOpen(false);
-    }
-    console.log("data",init)
+   await alert("Transaction successful")
 
-    //<Row count={init.d_amt}/>
-
+   let d = {
+     _id:props.data.id,
+     raised:parseInt(init.d_amt) + parseInt(props.data.raised)
   };
+   await axios.put("http://localhost:2000/Raiserdet",d)
+   await setOpen(false);
+    }
+    console.log("props.data.raised",props.data.raised);
+    console.log('====================================');
+    console.log(" props.data.amt", props.data.amt);
+    console.log('====================================');
+    if(props.data.raised + init.d_amt >= props.data.amt)
+    {console.log("hey, iam inside");
+      let dat = {
+        data: {
+          _id: props.data.id,
+        },
+      };
+     
+     await axios.delete("http://localhost:2000/Raiserdet",dat)
+    }
+    console.log("donate data info :",init)
+    console.log("id:",props.data.id)
+  };
+
 
     return(
       <div>
@@ -142,9 +161,7 @@ function Row(props) {
             alignItems: 'center',
           }}
         >
-          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar> */}
+
           <Typography component="h8" variant="h9">
             Needer's Name : {props.data.nameN}
           </Typography>
@@ -164,7 +181,7 @@ function Row(props) {
           }}>
             <TextField
               margin="normal"
-              required = "true"
+              required 
               fullWidth
               id="wallet_address"
               label="Wallet Address"
@@ -182,10 +199,7 @@ function Row(props) {
               id="fund"
               autoComplete="fund"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
+    
             <Button
             //onClick={handleClose}
               type="submit"
@@ -207,7 +221,6 @@ function Row(props) {
     </div>
     );
   }
-
   /////////////////////////
 
   return (
@@ -239,8 +252,8 @@ function Row(props) {
                 Description: {row.des} <br></br>
                 Wallet address: {row.walladd}<br></br>
                 Contact Info: {row.mob}<br></br>
-                ZIP Code: {row.zip}
-
+                ZIP Code: {row.zip} <br></br>
+                Amount Raised :{row.raised}/{row.amt}
               </Typography>
 
               
@@ -288,22 +301,27 @@ export default function CollapsibleTable() {
   },[load]);
 
   //console.log("details outside",details[0])
-  if(details === null)
+  if(!details)
   {
    return <h1>Loading....</h1>
   }
  
+ 
+ console.log(details);
   
   const filterRows = details.filter((val)=>
-    (val.Purpose.includes(change)||val.Needfirstname.includes(change))
+     {
+       let se = change
+       return (val.Purpose.includes(se) || val.Needfirstname.includes(se)) }
   );
 
   //console.log(filterRows);
   var detailsarr = filterRows.length ===0?details:filterRows
 
+
   const rows = detailsarr.map(
-    (val)=>createData (val.Needfirstname , val.Purpose, val.amount , val.firstName ,
-      val.description , val.wallet_address , val.mobile , val.zip)
+    (val)=>createData (val._id,val.Needfirstname , val.Purpose, val.amount , val.firstName ,
+      val.description , val.wallet_address , val.mobile , val.zip,val.raised)
     );
  
  return (

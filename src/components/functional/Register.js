@@ -1,38 +1,55 @@
-import * as React from 'react';
+import React,{useEffect, useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { Redirect } from "react-router-dom";
 // import DatePicker from '@mui/lab/DatePicker';
 ///import FormControlLabel from '@mui/material/FormControlLabel';
-//import Checkbox from '@mui/material/Checkbox';
-//import Link from '@mui/material/Link';
+import axios from "axios"
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+//import PhoneInput from 'react-phone-input-2'
 
 const theme = createTheme();
 
 export default function SignUp() {
-
- // const [value, setValue] = React.useState(null);
-
-  const handleSubmit = (event) => {
+    
+  const [red, setred] = useState("");
+   useEffect(() => {
+    
+   }, [red]);
+   
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const getdetails = {
-        email: data.get('email'),
-        password: data.get('password'),
+   const getdetails = {
+        firstName : data.get("firstName"),
+        lastName : data.get("lastName"),
+        dob : data.get("dob"),
         mobile : data.get('mobile'),
+        email: data.get('email'),
+        password: data.get('password')
     }
     console.log(getdetails);
+    
+    await axios.post("http://localhost:2000/signup",getdetails)
+
+    setred("--")
+  
   };
+  
+   
+    if(red === "--"){
+      return  <Redirect to = {
+        { pathname: '/login' }
+    }
+    />
+    }
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,7 +69,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={handleSubmit} Validate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -62,6 +79,7 @@ export default function SignUp() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  type="text"
                   autoFocus
                 />
               </Grid>
@@ -73,20 +91,22 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  type="text"
                 />
               </Grid>
 
-              {/* <Grid item xs={12}>
+               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   id="dob"
-                  label="Date Of Birth"
+                  label="DOB"
                   name="dob"
                   autoComplete="dob"
+                  type = "date"
                 />
-
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                </Grid>
+              {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
         label="Basic example"
         value={value}
@@ -105,6 +125,7 @@ export default function SignUp() {
                   id="mobile"
                   label="Contact Number"
                   name="mobile"
+                  type="tel"
                   autoComplete="mobile"
                 />
               </Grid>
@@ -117,6 +138,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  type = "email"
                 />
               </Grid>
               <Grid item xs={12}>

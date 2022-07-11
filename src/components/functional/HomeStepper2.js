@@ -13,25 +13,26 @@ import { autoPlay } from 'react-swipeable-views-utils';
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
+  
   {
-    label: 'TOGETHER WE CAN !',
+    label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
-    require('../images/slide1.jpg'),
+      'https://media.istockphoto.com/photos/modern-white-keyboard-wih-donate-button-picture-id1320051999?b=1&k=20&m=1320051999&s=170667a&w=0&h=vkNQUK7OTajeokYGmERzmUJ09TX06oNX4n-1qRlQ9Lo=',
   },
   {
-    label: 'GIVING IS THE GREATEST ACT OF GRACE',
+    label: 'Bird',
     imgPath:
-    require('../images/slide2.jpg')
+      'https://images.unsplash.com/photo-1626162987518-4fee900a9323?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZXRoZXJldW18ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
   },
   {
-    label: 'DONATE VIA ETHEREUM FOR SECURE PAYMENTS',
+    label: 'Bali, Indonesia',
     imgPath:
-    require('../images/slide4.jpg')
+      'https://images.unsplash.com/photo-1639815188546-c43c240ff4df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2NrY2hhaW58ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
   },
   {
-    label: 'HELPING OTHERS IS THE WAY WE HELP OURSELVES',
+    label: 'Goč, Serbia',
     imgPath:
-    require('../images/slide3.jpg')
+      'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMGhhbmR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
   },
 ];
 
@@ -53,13 +54,14 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 849, flexGrow: 1,boxShadow:1,
-    position: 'absolute',
-    bottom : 295,
-    left : 245,
+    <Box sx={{ flexGrow: 1 ,
+    position : 'absolute',
+    bottom :300,
+    width : 1250,
+    left : 250
     }}>
-      <Paper
-        rectangle
+      {/* <Paper
+        square
         elevation={0}
         sx={{
           display: 'flex',
@@ -70,7 +72,7 @@ function SwipeableTextMobileStepper() {
         }}
       >
         <Typography>{images[activeStep].label}</Typography>
-      </Paper>
+      </Paper> */}
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -83,9 +85,9 @@ function SwipeableTextMobileStepper() {
               <Box
                 component="img"
                 sx={{
-                  height: 285,
+                  maxHeight: 328,
                   display: 'block',
-                  maxWidth: 850,
+                  maxWidth: 1370,
                   overflow: 'hidden',
                   width: '100%',
                 }}
