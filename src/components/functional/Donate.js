@@ -110,10 +110,11 @@ function Row(props) {
           _id: props.data.id,
         },
       };
-     
+
+      
      await axios.delete("http://localhost:2000/Raiserdet",dat)
     }
-    console.log("donate data info :",init)
+    console.log("donate data information :",init)
     console.log("id:",props.data.id)
   };
 
